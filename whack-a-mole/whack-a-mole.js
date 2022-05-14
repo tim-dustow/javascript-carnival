@@ -1,22 +1,31 @@
 // -    -   -   -   -  //
 // JAVASCRIPT CARNIVAL //
 // -    -   -   -   -  //
-let cell = document.getElementsByTagName('td') //---Get individual cells
-
+let cellsArray = document.getElementsByTagName('TD') //---Get individual cells
+console.log()
 //---get random number 0-24 or 1-25 -1, assign to 'x' array
-function getRandomNumer(min, max) {
+function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min)) + min
 }
-let hitMoles = 0
 
-function revealMole() {
-  let randomNum = getRandomNumer(0, 25)
-  let randomCell = cell[randomNum]
-  let image = document.createElement('img')
-  image.src = 'mole.png'
-  image.style.width = '75px'
-  image.id = 'mole'
+function showMole() {
+  let randomNum = getRandomNumber(0, 25)
+  let randomCell = cellsArray[randomNum]
+  const img = document.createElement('img')
+  img.src = 'mole.PNG'
+  img.style.width = '75px'
+  img.style.height = '75px'
+  img.id = 'mole'
+  randomCell.appendChild(img)
+  document.getElementById('mole').onclick = whackedMole()
 }
+showMole()
 
-console.log(cell)
+function whackedMole() {
+  document.getElementById('mole').remove()
+  const soundEffect = new Audio()
+  soundEffect.src = 'whack-audio.wav'
+  soundEffect.play()
+  showMole()
+}
 console.log('Whack-a-Mole!')
