@@ -12,6 +12,10 @@ let hitMoles = 0
 function revealMole() {
   let randomNum = getRandomNumer(0, 25)
   let randomCell = cell[randomNum]
+  let image = document.createElement('img')
+  image.src = 'mole.png'
+  image.style.width = '75px'
+  image.id = 'mole'
 }
 
 console.log(cell)
