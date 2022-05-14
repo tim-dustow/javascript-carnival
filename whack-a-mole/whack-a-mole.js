@@ -17,7 +17,9 @@ function showMole() {
   img.style.height = '75px'
   img.id = 'mole'
   randomCell.appendChild(img)
-  document.getElementById('mole').onclick = whackedMole()
+  document.getElementById('mole').onclick = function () {
+    whackedMole()
+  }
 }
 showMole()
 
